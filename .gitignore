@@ -152,3 +152,6 @@ serviceAccountKey.json
 # Archivos generados por el ejemplo de ram-memory (datos pesados)
 src/ram-memory/big.csv
 src/ram-memory/final.txt
+
+# Salida generada por la herramienta Graphify (knowledge graph)
+graphify-out/
