@@ -1,0 +1,707 @@
+
+> billeteras-mcp@1.0.0 test
+> node --import tsx --test tests/*.test.ts
+
+TAP version 13
+# Subtest: aritmetica de dinero
+    # Subtest: convierte con enteros y redondea hacia abajo
+    not ok 1 - convierte con enteros y redondea hacia abajo
+      ---
+      duration_ms: 0.856084
+      location: '/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:1:1588'
+      failureType: 'testCodeFailure'
+      error: 'not implemented'
+      code: 'ERR_TEST_FAILURE'
+      stack: |-
+        convertAmount (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/src/reglas.ts:102:9)
+        TestContext.<anonymous> (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:76:18)
+        Test.runInAsyncScope (node:async_hooks:206:9)
+        Test.run (node:internal/test_runner/test:796:25)
+        Test.start (node:internal/test_runner/test:702:17)
+        node:internal/test_runner/test:1133:71
+        node:internal/per_context/primordials:482:82
+        new Promise (<anonymous>)
+        new SafePromise (node:internal/per_context/primordials:450:29)
+        node:internal/per_context/primordials:482:9
+      ...
+    # Subtest: devuelve siempre enteros
+    not ok 2 - devuelve siempre enteros
+      ---
+      duration_ms: 0.072958
+      location: '/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:1:1778'
+      failureType: 'testCodeFailure'
+      error: 'not implemented'
+      code: 'ERR_TEST_FAILURE'
+      stack: |-
+        convertAmount (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/src/reglas.ts:102:9)
+        TestContext.<anonymous> (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:82:35)
+        Test.runInAsyncScope (node:async_hooks:206:9)
+        Test.run (node:internal/test_runner/test:796:25)
+        Suite.processPendingSubtests (node:internal/test_runner/test:526:18)
+        Test.postRun (node:internal/test_runner/test:889:19)
+        Test.run (node:internal/test_runner/test:835:12)
+        async Promise.all (index 0)
+        async Suite.run (node:internal/test_runner/test:1135:7)
+        async Test.processPendingSubtests (node:internal/test_runner/test:526:7)
+      ...
+    1..2
+not ok 1 - aritmetica de dinero
+  ---
+  duration_ms: 1.805208
+  type: 'suite'
+  location: '/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:1:1551'
+  failureType: 'subtestsFailed'
+  error: '2 subtests failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+# Subtest: cotizar
+    # Subtest: devuelve id, tasa, monto destino entero y expiracion a 60 s
+    not ok 1 - devuelve id, tasa, monto destino entero y expiracion a 60 s
+      ---
+      duration_ms: 0.270833
+      location: '/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:1:1908'
+      failureType: 'testCodeFailure'
+      error: 'not implemented'
+      code: 'ERR_TEST_FAILURE'
+      stack: |-
+        createEngine (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/src/reglas.ts:110:9)
+        makeHarness (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:34:18)
+        TestContext.<anonymous> (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:88:15)
+        Test.runInAsyncScope (node:async_hooks:206:9)
+        Test.run (node:internal/test_runner/test:796:25)
+        Test.start (node:internal/test_runner/test:702:17)
+        node:internal/test_runner/test:1133:71
+        node:internal/per_context/primordials:482:82
+        new Promise (<anonymous>)
+        new SafePromise (node:internal/per_context/primordials:450:29)
+      ...
+    # Subtest: no mueve dinero
+    not ok 2 - no mueve dinero
+      ---
+      duration_ms: 0.070375
+      location: '/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:1:2311'
+      failureType: 'testCodeFailure'
+      error: 'not implemented'
+      code: 'ERR_TEST_FAILURE'
+      stack: |-
+        createEngine (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/src/reglas.ts:110:9)
+        makeHarness (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:34:18)
+        TestContext.<anonymous> (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:98:15)
+        Test.runInAsyncScope (node:async_hooks:206:9)
+        Test.run (node:internal/test_runner/test:796:25)
+        Suite.processPendingSubtests (node:internal/test_runner/test:526:18)
+        Test.postRun (node:internal/test_runner/test:889:19)
+        Test.run (node:internal/test_runner/test:835:12)
+        async Promise.all (index 0)
+        async Suite.run (node:internal/test_runner/test:1135:7)
+      ...
+    # Subtest: rechaza monto invalido 0 con INVALID_AMOUNT
+    not ok 3 - rechaza monto invalido 0 con INVALID_AMOUNT
+      ---
+      duration_ms: 0.120583
+      location: '/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:1:2530'
+      failureType: 'testCodeFailure'
+      error: 'not implemented'
+      code: 'ERR_TEST_FAILURE'
+      stack: |-
+        createEngine (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/src/reglas.ts:110:9)
+        makeHarness (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:34:18)
+        TestContext.<anonymous> (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:106:17)
+        Test.runInAsyncScope (node:async_hooks:206:9)
+        Test.run (node:internal/test_runner/test:796:25)
+        Suite.processPendingSubtests (node:internal/test_runner/test:526:18)
+        Test.postRun (node:internal/test_runner/test:889:19)
+        Test.run (node:internal/test_runner/test:835:12)
+        async Suite.processPendingSubtests (node:internal/test_runner/test:526:7)
+      ...
+    # Subtest: rechaza monto invalido -5 con INVALID_AMOUNT
+    not ok 4 - rechaza monto invalido -5 con INVALID_AMOUNT
+      ---
+      duration_ms: 0.124125
+      location: '/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:1:2530'
+      failureType: 'testCodeFailure'
+      error: 'not implemented'
+      code: 'ERR_TEST_FAILURE'
+      stack: |-
+        createEngine (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/src/reglas.ts:110:9)
+        makeHarness (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:34:18)
+        TestContext.<anonymous> (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:106:17)
+        Test.runInAsyncScope (node:async_hooks:206:9)
+        Test.run (node:internal/test_runner/test:796:25)
+        Suite.processPendingSubtests (node:internal/test_runner/test:526:18)
+        Test.postRun (node:internal/test_runner/test:889:19)
+        Test.run (node:internal/test_runner/test:835:12)
+        async Suite.processPendingSubtests (node:internal/test_runner/test:526:7)
+      ...
+    # Subtest: rechaza monto invalido 1.5 con INVALID_AMOUNT
+    not ok 5 - rechaza monto invalido 1.5 con INVALID_AMOUNT
+      ---
+      duration_ms: 0.05875
+      location: '/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:1:2530'
+      failureType: 'testCodeFailure'
+      error: 'not implemented'
+      code: 'ERR_TEST_FAILURE'
+      stack: |-
+        createEngine (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/src/reglas.ts:110:9)
+        makeHarness (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:34:18)
+        TestContext.<anonymous> (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:106:17)
+        Test.runInAsyncScope (node:async_hooks:206:9)
+        Test.run (node:internal/test_runner/test:796:25)
+        Suite.processPendingSubtests (node:internal/test_runner/test:526:18)
+        Test.postRun (node:internal/test_runner/test:889:19)
+        Test.run (node:internal/test_runner/test:835:12)
+        async Suite.processPendingSubtests (node:internal/test_runner/test:526:7)
+      ...
+    # Subtest: rechaza monto invalido NaN con INVALID_AMOUNT
+    not ok 6 - rechaza monto invalido NaN con INVALID_AMOUNT
+      ---
+      duration_ms: 0.144291
+      location: '/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:1:2530'
+      failureType: 'testCodeFailure'
+      error: 'not implemented'
+      code: 'ERR_TEST_FAILURE'
+      stack: |-
+        createEngine (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/src/reglas.ts:110:9)
+        makeHarness (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:34:18)
+        TestContext.<anonymous> (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:106:17)
+        Test.runInAsyncScope (node:async_hooks:206:9)
+        Test.run (node:internal/test_runner/test:796:25)
+        Suite.processPendingSubtests (node:internal/test_runner/test:526:18)
+        Test.postRun (node:internal/test_runner/test:889:19)
+        Test.run (node:internal/test_runner/test:835:12)
+        async Suite.processPendingSubtests (node:internal/test_runner/test:526:7)
+      ...
+    # Subtest: rechaza monto invalido Infinity con INVALID_AMOUNT
+    not ok 7 - rechaza monto invalido Infinity con INVALID_AMOUNT
+      ---
+      duration_ms: 0.151166
+      location: '/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:1:2530'
+      failureType: 'testCodeFailure'
+      error: 'not implemented'
+      code: 'ERR_TEST_FAILURE'
+      stack: |-
+        createEngine (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/src/reglas.ts:110:9)
+        makeHarness (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:34:18)
+        TestContext.<anonymous> (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:106:17)
+        Test.runInAsyncScope (node:async_hooks:206:9)
+        Test.run (node:internal/test_runner/test:796:25)
+        Suite.processPendingSubtests (node:internal/test_runner/test:526:18)
+        Test.postRun (node:internal/test_runner/test:889:19)
+        Test.run (node:internal/test_runner/test:835:12)
+        async Suite.processPendingSubtests (node:internal/test_runner/test:526:7)
+      ...
+    # Subtest: rechaza monto invalido 1000000000000000 con INVALID_AMOUNT
+    not ok 8 - rechaza monto invalido 1000000000000000 con INVALID_AMOUNT
+      ---
+      duration_ms: 0.07725
+      location: '/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:1:2530'
+      failureType: 'testCodeFailure'
+      error: 'not implemented'
+      code: 'ERR_TEST_FAILURE'
+      stack: |-
+        createEngine (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/src/reglas.ts:110:9)
+        makeHarness (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:34:18)
+        TestContext.<anonymous> (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:106:17)
+        Test.runInAsyncScope (node:async_hooks:206:9)
+        Test.run (node:internal/test_runner/test:796:25)
+        Suite.processPendingSubtests (node:internal/test_runner/test:526:18)
+        Test.postRun (node:internal/test_runner/test:889:19)
+        Test.run (node:internal/test_runner/test:835:12)
+        async Suite.processPendingSubtests (node:internal/test_runner/test:526:7)
+      ...
+    # Subtest: rechaza un monto cuyo equivalente destino seria 0
+    not ok 9 - rechaza un monto cuyo equivalente destino seria 0
+      ---
+      duration_ms: 0.08125
+      location: '/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:1:2747'
+      failureType: 'testCodeFailure'
+      error: 'not implemented'
+      code: 'ERR_TEST_FAILURE'
+      stack: |-
+        createEngine (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/src/reglas.ts:110:9)
+        makeHarness (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:34:18)
+        TestContext.<anonymous> (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:113:15)
+        Test.runInAsyncScope (node:async_hooks:206:9)
+        Test.run (node:internal/test_runner/test:796:25)
+        Suite.processPendingSubtests (node:internal/test_runner/test:526:18)
+        Test.postRun (node:internal/test_runner/test:889:19)
+        Test.run (node:internal/test_runner/test:835:12)
+        async Suite.processPendingSubtests (node:internal/test_runner/test:526:7)
+      ...
+    1..9
+not ok 2 - cotizar
+  ---
+  duration_ms: 1.421083
+  type: 'suite'
+  location: '/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:1:1884'
+  failureType: 'subtestsFailed'
+  error: '9 subtests failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+# Subtest: R1 saldo nunca negativo
+    # Subtest: rechaza con INSUFFICIENT_FUNDS y el mensaje exacto sin cambiar saldos
+    not ok 1 - rechaza con INSUFFICIENT_FUNDS y el mensaje exacto sin cambiar saldos
+      ---
+      duration_ms: 0.221041
+      location: '/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:1:3000'
+      failureType: 'testCodeFailure'
+      error: 'not implemented'
+      code: 'ERR_TEST_FAILURE'
+      stack: |-
+        createEngine (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/src/reglas.ts:110:9)
+        makeHarness (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:34:18)
+        TestContext.<anonymous> (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:121:15)
+        Test.runInAsyncScope (node:async_hooks:206:9)
+        Test.run (node:internal/test_runner/test:796:25)
+        Test.start (node:internal/test_runner/test:702:17)
+        node:internal/test_runner/test:1133:71
+        node:internal/per_context/primordials:482:82
+        new Promise (<anonymous>)
+        new SafePromise (node:internal/per_context/primordials:450:29)
+      ...
+    # Subtest: permite transferir el saldo exacto y deja el origen en 0
+    not ok 2 - permite transferir el saldo exacto y deja el origen en 0
+      ---
+      duration_ms: 0.089042
+      location: '/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:1:3504'
+      failureType: 'testCodeFailure'
+      error: 'not implemented'
+      code: 'ERR_TEST_FAILURE'
+      stack: |-
+        createEngine (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/src/reglas.ts:110:9)
+        makeHarness (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:34:18)
+        TestContext.<anonymous> (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:134:15)
+        Test.runInAsyncScope (node:async_hooks:206:9)
+        Test.run (node:internal/test_runner/test:796:25)
+        Suite.processPendingSubtests (node:internal/test_runner/test:526:18)
+        Test.postRun (node:internal/test_runner/test:889:19)
+        Test.run (node:internal/test_runner/test:835:12)
+        async Promise.all (index 0)
+        async Suite.run (node:internal/test_runner/test:1135:7)
+      ...
+    # Subtest: ninguna billetera queda con saldo negativo
+    not ok 3 - ninguna billetera queda con saldo negativo
+      ---
+      duration_ms: 0.084125
+      location: '/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:1:3878'
+      failureType: 'testCodeFailure'
+      error: 'not implemented'
+      code: 'ERR_TEST_FAILURE'
+      stack: |-
+        createEngine (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/src/reglas.ts:110:9)
+        makeHarness (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:34:18)
+        TestContext.<anonymous> (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:145:15)
+        Test.runInAsyncScope (node:async_hooks:206:9)
+        Test.run (node:internal/test_runner/test:796:25)
+        Suite.processPendingSubtests (node:internal/test_runner/test:526:18)
+        Test.postRun (node:internal/test_runner/test:889:19)
+        Test.run (node:internal/test_runner/test:835:12)
+        async Suite.processPendingSubtests (node:internal/test_runner/test:526:7)
+      ...
+    1..3
+not ok 3 - R1 saldo nunca negativo
+  ---
+  duration_ms: 1.165916
+  type: 'suite'
+  location: '/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:1:2960'
+  failureType: 'subtestsFailed'
+  error: '3 subtests failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+# Subtest: R2 cotizacion vigente
+    # Subtest: acepta una cotizacion de menos de 60 s
+    not ok 1 - acepta una cotizacion de menos de 60 s
+      ---
+      duration_ms: 0.2125
+      location: '/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:1:4210'
+      failureType: 'testCodeFailure'
+      error: 'not implemented'
+      code: 'ERR_TEST_FAILURE'
+      stack: |-
+        createEngine (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/src/reglas.ts:110:9)
+        makeHarness (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:34:18)
+        TestContext.<anonymous> (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:158:15)
+        Test.runInAsyncScope (node:async_hooks:206:9)
+        Test.run (node:internal/test_runner/test:796:25)
+        Test.start (node:internal/test_runner/test:702:17)
+        node:internal/test_runner/test:1133:71
+        node:internal/per_context/primordials:482:82
+        new Promise (<anonymous>)
+        new SafePromise (node:internal/per_context/primordials:450:29)
+      ...
+    # Subtest: rechaza con QUOTE_EXPIRED a los 60 s y sugiere cotizar de nuevo
+    not ok 2 - rechaza con QUOTE_EXPIRED a los 60 s y sugiere cotizar de nuevo
+      ---
+      duration_ms: 0.103042
+      location: '/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:1:4466'
+      failureType: 'testCodeFailure'
+      error: 'not implemented'
+      code: 'ERR_TEST_FAILURE'
+      stack: |-
+        createEngine (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/src/reglas.ts:110:9)
+        makeHarness (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:34:18)
+        TestContext.<anonymous> (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:166:15)
+        Test.runInAsyncScope (node:async_hooks:206:9)
+        Test.run (node:internal/test_runner/test:796:25)
+        Suite.processPendingSubtests (node:internal/test_runner/test:526:18)
+        Test.postRun (node:internal/test_runner/test:889:19)
+        Test.run (node:internal/test_runner/test:835:12)
+        async Promise.all (index 0)
+        async Suite.run (node:internal/test_runner/test:1135:7)
+      ...
+    # Subtest: rechaza con QUOTE_EXPIRED una cotizacion que no existe
+    not ok 3 - rechaza con QUOTE_EXPIRED una cotizacion que no existe
+      ---
+      duration_ms: 0.085375
+      location: '/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:1:4895'
+      failureType: 'testCodeFailure'
+      error: 'not implemented'
+      code: 'ERR_TEST_FAILURE'
+      stack: |-
+        createEngine (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/src/reglas.ts:110:9)
+        makeHarness (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:34:18)
+        TestContext.<anonymous> (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:179:15)
+        Test.runInAsyncScope (node:async_hooks:206:9)
+        Test.run (node:internal/test_runner/test:796:25)
+        Suite.processPendingSubtests (node:internal/test_runner/test:526:18)
+        Test.postRun (node:internal/test_runner/test:889:19)
+        Test.run (node:internal/test_runner/test:835:12)
+        async Suite.processPendingSubtests (node:internal/test_runner/test:526:7)
+      ...
+    # Subtest: una cotizacion es de un solo uso (otra llave no la reutiliza)
+    not ok 4 - una cotizacion es de un solo uso (otra llave no la reutiliza)
+      ---
+      duration_ms: 0.1205
+      location: '/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:1:5199'
+      failureType: 'testCodeFailure'
+      error: 'not implemented'
+      code: 'ERR_TEST_FAILURE'
+      stack: |-
+        createEngine (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/src/reglas.ts:110:9)
+        makeHarness (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:34:18)
+        TestContext.<anonymous> (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:188:15)
+        Test.runInAsyncScope (node:async_hooks:206:9)
+        Test.run (node:internal/test_runner/test:796:25)
+        Suite.processPendingSubtests (node:internal/test_runner/test:526:18)
+        Test.postRun (node:internal/test_runner/test:889:19)
+        Test.run (node:internal/test_runner/test:835:12)
+        async Suite.processPendingSubtests (node:internal/test_runner/test:526:7)
+      ...
+    1..4
+not ok 4 - R2 cotizacion vigente
+  ---
+  duration_ms: 0.693916
+  type: 'suite'
+  location: '/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:1:4172'
+  failureType: 'subtestsFailed'
+  error: '4 subtests failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+# Subtest: R3 atomicidad
+    # Subtest: si falla el credito se revierte el debito y no hay asientos
+    not ok 1 - si falla el credito se revierte el debito y no hay asientos
+      ---
+      duration_ms: 0.116209
+      location: '/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:1:5662'
+      failureType: 'testCodeFailure'
+      error: 'not implemented'
+      code: 'ERR_TEST_FAILURE'
+      stack: |-
+        createEngine (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/src/reglas.ts:110:9)
+        makeHarness (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:34:18)
+        TestContext.<anonymous> (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:201:15)
+        Test.runInAsyncScope (node:async_hooks:206:9)
+        Test.run (node:internal/test_runner/test:796:25)
+        Test.start (node:internal/test_runner/test:702:17)
+        node:internal/test_runner/test:1133:71
+        node:internal/per_context/primordials:482:82
+        new Promise (<anonymous>)
+        new SafePromise (node:internal/per_context/primordials:450:29)
+      ...
+    # Subtest: tras un fallo se puede reintentar con la misma llave y la misma cotizacion
+    not ok 2 - tras un fallo se puede reintentar con la misma llave y la misma cotizacion
+      ---
+      duration_ms: 0.094541
+      location: '/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:1:6091'
+      failureType: 'testCodeFailure'
+      error: 'not implemented'
+      code: 'ERR_TEST_FAILURE'
+      stack: |-
+        createEngine (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/src/reglas.ts:110:9)
+        makeHarness (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:34:18)
+        TestContext.<anonymous> (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:214:15)
+        Test.runInAsyncScope (node:async_hooks:206:9)
+        Test.run (node:internal/test_runner/test:796:25)
+        Suite.processPendingSubtests (node:internal/test_runner/test:526:18)
+        Test.postRun (node:internal/test_runner/test:889:19)
+        Test.run (node:internal/test_runner/test:835:12)
+        async Promise.all (index 0)
+        async Suite.run (node:internal/test_runner/test:1135:7)
+      ...
+    1..2
+not ok 5 - R3 atomicidad
+  ---
+  duration_ms: 0.279416
+  type: 'suite'
+  location: '/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:1:5632'
+  failureType: 'subtestsFailed'
+  error: '2 subtests failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+# Subtest: R4 asientos que suman cero por moneda
+    # Subtest: USD a EUR: debito W-001 / credito FX_CLEARING_USD y debito FX_CLEARING_EUR / credito W-002
+    not ok 1 - USD a EUR: debito W-001 / credito FX_CLEARING_USD y debito FX_CLEARING_EUR / credito W-002
+      ---
+      duration_ms: 0.199708
+      location: '/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:1:6641'
+      failureType: 'testCodeFailure'
+      error: 'not implemented'
+      code: 'ERR_TEST_FAILURE'
+      stack: |-
+        createEngine (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/src/reglas.ts:110:9)
+        makeHarness (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:34:18)
+        TestContext.<anonymous> (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:227:15)
+        Test.runInAsyncScope (node:async_hooks:206:9)
+        Test.run (node:internal/test_runner/test:796:25)
+        Test.start (node:internal/test_runner/test:702:17)
+        node:internal/test_runner/test:1133:71
+        node:internal/per_context/primordials:482:82
+        new Promise (<anonymous>)
+        new SafePromise (node:internal/per_context/primordials:450:29)
+      ...
+    # Subtest: cada transferencia suma cero en cada moneda (USD a COP)
+    not ok 2 - cada transferencia suma cero en cada moneda (USD a COP)
+      ---
+      duration_ms: 0.082417
+      location: '/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:1:7344'
+      failureType: 'testCodeFailure'
+      error: 'not implemented'
+      code: 'ERR_TEST_FAILURE'
+      stack: |-
+        createEngine (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/src/reglas.ts:110:9)
+        makeHarness (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:34:18)
+        TestContext.<anonymous> (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:243:15)
+        Test.runInAsyncScope (node:async_hooks:206:9)
+        Test.run (node:internal/test_runner/test:796:25)
+        Suite.processPendingSubtests (node:internal/test_runner/test:526:18)
+        Test.postRun (node:internal/test_runner/test:889:19)
+        Test.run (node:internal/test_runner/test:835:12)
+        async Promise.all (index 0)
+        async Suite.run (node:internal/test_runner/test:1135:7)
+      ...
+    # Subtest: misma moneda entre billeteras distintas: tasa 1 y suma cero
+    not ok 3 - misma moneda entre billeteras distintas: tasa 1 y suma cero
+      ---
+      duration_ms: 0.201625
+      location: '/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:1:7698'
+      failureType: 'testCodeFailure'
+      error: 'not implemented'
+      code: 'ERR_TEST_FAILURE'
+      stack: |-
+        createEngine (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/src/reglas.ts:110:9)
+        makeHarness (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:34:18)
+        TestContext.<anonymous> (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:252:15)
+        Test.runInAsyncScope (node:async_hooks:206:9)
+        Test.run (node:internal/test_runner/test:796:25)
+        Suite.processPendingSubtests (node:internal/test_runner/test:526:18)
+        Test.postRun (node:internal/test_runner/test:889:19)
+        Test.run (node:internal/test_runner/test:835:12)
+        async Suite.processPendingSubtests (node:internal/test_runner/test:526:7)
+      ...
+    1..3
+not ok 6 - R4 asientos que suman cero por moneda
+  ---
+  duration_ms: 0.57375
+  type: 'suite'
+  location: '/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:1:6587'
+  failureType: 'subtestsFailed'
+  error: '3 subtests failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+# Subtest: R5 idempotencia
+    # Subtest: la misma llave dos veces: un solo debito y resultado identico
+    not ok 1 - la misma llave dos veces: un solo debito y resultado identico
+      ---
+      duration_ms: 0.102792
+      location: '/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:1:8224'
+      failureType: 'testCodeFailure'
+      error: 'not implemented'
+      code: 'ERR_TEST_FAILURE'
+      stack: |-
+        createEngine (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/src/reglas.ts:110:9)
+        makeHarness (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:34:18)
+        TestContext.<anonymous> (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:266:15)
+        Test.runInAsyncScope (node:async_hooks:206:9)
+        Test.run (node:internal/test_runner/test:796:25)
+        Test.start (node:internal/test_runner/test:702:17)
+        node:internal/test_runner/test:1133:71
+        node:internal/per_context/primordials:482:82
+        new Promise (<anonymous>)
+        new SafePromise (node:internal/per_context/primordials:450:29)
+      ...
+    # Subtest: el reintento funciona aunque la cotizacion ya haya vencido
+    not ok 2 - el reintento funciona aunque la cotizacion ya haya vencido
+      ---
+      duration_ms: 0.080333
+      location: '/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:1:8701'
+      failureType: 'testCodeFailure'
+      error: 'not implemented'
+      code: 'ERR_TEST_FAILURE'
+      stack: |-
+        createEngine (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/src/reglas.ts:110:9)
+        makeHarness (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:34:18)
+        TestContext.<anonymous> (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:278:15)
+        Test.runInAsyncScope (node:async_hooks:206:9)
+        Test.run (node:internal/test_runner/test:796:25)
+        Suite.processPendingSubtests (node:internal/test_runner/test:526:18)
+        Test.postRun (node:internal/test_runner/test:889:19)
+        Test.run (node:internal/test_runner/test:835:12)
+        async Promise.all (index 0)
+        async Suite.run (node:internal/test_runner/test:1135:7)
+      ...
+    # Subtest: la misma llave con datos distintos se rechaza con IDEMPOTENCY_KEY_REUSED
+    not ok 3 - la misma llave con datos distintos se rechaza con IDEMPOTENCY_KEY_REUSED
+      ---
+      duration_ms: 0.08275
+      location: '/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:1:9100'
+      failureType: 'testCodeFailure'
+      error: 'not implemented'
+      code: 'ERR_TEST_FAILURE'
+      stack: |-
+        createEngine (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/src/reglas.ts:110:9)
+        makeHarness (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:34:18)
+        TestContext.<anonymous> (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:289:15)
+        Test.runInAsyncScope (node:async_hooks:206:9)
+        Test.run (node:internal/test_runner/test:796:25)
+        Suite.processPendingSubtests (node:internal/test_runner/test:526:18)
+        Test.postRun (node:internal/test_runner/test:889:19)
+        Test.run (node:internal/test_runner/test:835:12)
+        async Suite.processPendingSubtests (node:internal/test_runner/test:526:7)
+      ...
+    1..3
+not ok 7 - R5 idempotencia
+  ---
+  duration_ms: 0.336
+  type: 'suite'
+  location: '/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:1:8192'
+  failureType: 'subtestsFailed'
+  error: '3 subtests failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+# Subtest: validaciones de billeteras
+    # Subtest: SAME_WALLET cuando origen y destino son el mismo id
+    not ok 1 - SAME_WALLET cuando origen y destino son el mismo id
+      ---
+      duration_ms: 0.120875
+      location: '/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:1:9641'
+      failureType: 'testCodeFailure'
+      error: 'not implemented'
+      code: 'ERR_TEST_FAILURE'
+      stack: |-
+        createEngine (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/src/reglas.ts:110:9)
+        makeHarness (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:34:18)
+        TestContext.<anonymous> (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:303:15)
+        Test.runInAsyncScope (node:async_hooks:206:9)
+        Test.run (node:internal/test_runner/test:796:25)
+        Test.start (node:internal/test_runner/test:702:17)
+        node:internal/test_runner/test:1133:71
+        node:internal/per_context/primordials:482:82
+        new Promise (<anonymous>)
+        new SafePromise (node:internal/per_context/primordials:450:29)
+      ...
+    # Subtest: WALLET_NOT_FOUND lista los ids validos (transferencia)
+    not ok 2 - WALLET_NOT_FOUND lista los ids validos (transferencia)
+      ---
+      duration_ms: 0.110083
+      location: '/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:1:9991'
+      failureType: 'testCodeFailure'
+      error: 'not implemented'
+      code: 'ERR_TEST_FAILURE'
+      stack: |-
+        createEngine (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/src/reglas.ts:110:9)
+        makeHarness (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:34:18)
+        TestContext.<anonymous> (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:314:15)
+        Test.runInAsyncScope (node:async_hooks:206:9)
+        Test.run (node:internal/test_runner/test:796:25)
+        Suite.processPendingSubtests (node:internal/test_runner/test:526:18)
+        Test.postRun (node:internal/test_runner/test:889:19)
+        Test.run (node:internal/test_runner/test:835:12)
+        async Promise.all (index 0)
+        async Suite.run (node:internal/test_runner/test:1135:7)
+      ...
+    # Subtest: WALLET_NOT_FOUND lista los ids validos (consulta de saldo)
+    not ok 3 - WALLET_NOT_FOUND lista los ids validos (consulta de saldo)
+      ---
+      duration_ms: 0.08
+      location: '/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:1:10387'
+      failureType: 'testCodeFailure'
+      error: 'not implemented'
+      code: 'ERR_TEST_FAILURE'
+      stack: |-
+        createEngine (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/src/reglas.ts:110:9)
+        makeHarness (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:34:18)
+        TestContext.<anonymous> (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:326:15)
+        Test.runInAsyncScope (node:async_hooks:206:9)
+        Test.run (node:internal/test_runner/test:796:25)
+        Suite.processPendingSubtests (node:internal/test_runner/test:526:18)
+        Test.postRun (node:internal/test_runner/test:889:19)
+        Test.run (node:internal/test_runner/test:835:12)
+        async Suite.processPendingSubtests (node:internal/test_runner/test:526:7)
+      ...
+    # Subtest: CURRENCY_MISMATCH si la moneda de la billetera no coincide con la cotizacion
+    not ok 4 - CURRENCY_MISMATCH si la moneda de la billetera no coincide con la cotizacion
+      ---
+      duration_ms: 0.078375
+      location: '/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:1:10658'
+      failureType: 'testCodeFailure'
+      error: 'not implemented'
+      code: 'ERR_TEST_FAILURE'
+      stack: |-
+        createEngine (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/src/reglas.ts:110:9)
+        makeHarness (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:34:18)
+        TestContext.<anonymous> (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:335:15)
+        Test.runInAsyncScope (node:async_hooks:206:9)
+        Test.run (node:internal/test_runner/test:796:25)
+        Suite.processPendingSubtests (node:internal/test_runner/test:526:18)
+        Test.postRun (node:internal/test_runner/test:889:19)
+        Test.run (node:internal/test_runner/test:835:12)
+        async Suite.processPendingSubtests (node:internal/test_runner/test:526:7)
+      ...
+    # Subtest: getWallet devuelve el saldo en unidades minimas
+    not ok 5 - getWallet devuelve el saldo en unidades minimas
+      ---
+      duration_ms: 0.072625
+      location: '/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:1:11039'
+      failureType: 'testCodeFailure'
+      error: 'not implemented'
+      code: 'ERR_TEST_FAILURE'
+      stack: |-
+        createEngine (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/src/reglas.ts:110:9)
+        makeHarness (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:34:18)
+        TestContext.<anonymous> (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:347:15)
+        Test.runInAsyncScope (node:async_hooks:206:9)
+        Test.run (node:internal/test_runner/test:796:25)
+        Suite.processPendingSubtests (node:internal/test_runner/test:526:18)
+        Test.postRun (node:internal/test_runner/test:889:19)
+        Test.run (node:internal/test_runner/test:835:12)
+        async Suite.processPendingSubtests (node:internal/test_runner/test:526:7)
+      ...
+    1..5
+not ok 8 - validaciones de billeteras
+  ---
+  duration_ms: 0.567167
+  type: 'suite'
+  location: '/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:1:9598'
+  failureType: 'subtestsFailed'
+  error: '5 subtests failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+1..8
+# tests 31
+# suites 8
+# pass 0
+# fail 31
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 573.561208

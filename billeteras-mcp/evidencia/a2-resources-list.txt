@@ -1,0 +1,39 @@
+$ npx -y @modelcontextprotocol/inspector@2.14.0 --cli node build/index.js --method resources/list
+
+--- stdout ---
+{
+  "resources": [
+    {
+      "name": "spec-transfer",
+      "title": "Especificación de transferencias",
+      "uri": "specs://SPEC-TRANSFER",
+      "description": "SPEC-TRANSFER: reglas de negocio de las transferencias multidivisa.",
+      "mimeType": "text/markdown"
+    },
+    {
+      "name": "Billetera W-001",
+      "title": "Estado de una billetera",
+      "uri": "billetera://W-001",
+      "description": "Estado de una billetera en JSON: id, moneda y saldo en unidades mínimas.",
+      "mimeType": "application/json"
+    },
+    {
+      "name": "Billetera W-002",
+      "title": "Estado de una billetera",
+      "uri": "billetera://W-002",
+      "description": "Estado de una billetera en JSON: id, moneda y saldo en unidades mínimas.",
+      "mimeType": "application/json"
+    },
+    {
+      "name": "Billetera W-003",
+      "title": "Estado de una billetera",
+      "uri": "billetera://W-003",
+      "description": "Estado de una billetera en JSON: id, moneda y saldo en unidades mínimas.",
+      "mimeType": "application/json"
+    }
+  ]
+}
+--- codigo de salida: 0 ---
+
+--- stderr (avisos de npm y logs del servidor) ---
+[billeteras-mcp] servidor listo en stdio

@@ -1,0 +1,23 @@
+$ npx -y @modelcontextprotocol/inspector@2.14.0 --cli node build/index.js --method prompts/list
+
+--- stdout ---
+{
+  "prompts": [
+    {
+      "name": "auditar_transferencia",
+      "title": "Auditar transferencia",
+      "description": "Guía para revisar una transferencia contra las invariantes R1 a R5.",
+      "arguments": [
+        {
+          "name": "transferenciaId",
+          "description": "Id de la transferencia a auditar",
+          "required": true
+        }
+      ]
+    }
+  ]
+}
+--- codigo de salida: 0 ---
+
+--- stderr (avisos de npm y logs del servidor) ---
+[billeteras-mcp] servidor listo en stdio

@@ -1,0 +1,17 @@
+$ npx -y @modelcontextprotocol/inspector@2.14.0 --cli node build/index.js --method tools/call --tool-name consultar_saldo --tool-arg billeteraId=W-999
+
+--- stdout ---
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "WALLET_NOT_FOUND: La billetera \"W-999\" no existe. Ids válidos: W-001, W-002, W-003. Usa uno de los ids válidos listados."
+    }
+  ],
+  "isError": true
+}
+--- codigo de salida: 5 ---
+
+--- stderr (avisos de npm y logs del servidor) ---
+[billeteras-mcp] servidor listo en stdio
+{"error":{"code":"tool_is_error","message":"Tool 'consultar_saldo' returned isError:true."}}

@@ -1,0 +1,17 @@
+$ npx -y @modelcontextprotocol/inspector@2.14.0 --cli node build/index.js --method tools/call --tool-name consultar_saldo --tool-arg billeteraId=123
+
+--- stdout ---
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "Input validation error: Invalid arguments for tool consultar_saldo: billeteraId: Invalid input: expected string, received number"
+    }
+  ],
+  "isError": true
+}
+--- codigo de salida: 5 ---
+
+--- stderr (avisos de npm y logs del servidor) ---
+[billeteras-mcp] servidor listo en stdio
+{"error":{"code":"tool_is_error","message":"Tool 'consultar_saldo' returned isError:true."}}

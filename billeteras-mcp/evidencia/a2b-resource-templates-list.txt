@@ -1,0 +1,18 @@
+$ npx -y @modelcontextprotocol/inspector@2.14.0 --cli node build/index.js --method resources/templates/list
+
+--- stdout ---
+{
+  "resourceTemplates": [
+    {
+      "name": "billetera",
+      "title": "Estado de una billetera",
+      "uriTemplate": "billetera://{id}",
+      "description": "Estado de una billetera en JSON: id, moneda y saldo en unidades mínimas.",
+      "mimeType": "application/json"
+    }
+  ]
+}
+--- codigo de salida: 0 ---
+
+--- stderr (avisos de npm y logs del servidor) ---
+[billeteras-mcp] servidor listo en stdio

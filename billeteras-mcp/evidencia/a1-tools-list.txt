@@ -1,0 +1,139 @@
+$ npx -y @modelcontextprotocol/inspector@2.14.0 --cli node build/index.js --method tools/list
+
+--- stdout ---
+{
+  "tools": [
+    {
+      "name": "consultar_saldo",
+      "title": "Consultar saldo",
+      "description": "Devuelve el saldo de una billetera en unidades mínimas de su moneda (centavos). Si el id no existe, responde con error y la lista de ids válidos.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "billeteraId": {
+            "type": "string",
+            "description": "Id de la billetera, por ejemplo W-001"
+          }
+        },
+        "required": [
+          "billeteraId"
+        ],
+        "$schema": "https://json-schema.org/draft/2020-12/schema"
+      },
+      "annotations": {
+        "readOnlyHint": true
+      }
+    },
+    {
+      "name": "cotizar",
+      "title": "Cotizar transferencia",
+      "description": "Calcula cuánto recibiría el destino y congela la tasa. La cotización es válida 60 segundos. Pasa el cotizacionId a crear_transferencia. No mueve dinero.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "origen": {
+            "type": "string",
+            "enum": [
+              "USD",
+              "EUR",
+              "COP"
+            ],
+            "description": "Moneda de origen (ISO 4217)"
+          },
+          "destino": {
+            "type": "string",
+            "enum": [
+              "USD",
+              "EUR",
+              "COP"
+            ],
+            "description": "Moneda de destino (ISO 4217)"
+          },
+          "monto": {
+            "type": "number",
+            "description": "Monto entero positivo en centavos de la moneda de origen"
+          }
+        },
+        "required": [
+          "origen",
+          "destino",
+          "monto"
+        ],
+        "$schema": "https://json-schema.org/draft/2020-12/schema"
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "cotizacionId": {
+            "type": "string"
+          },
+          "tasa": {
+            "type": "number"
+          },
+          "montoDestino": {
+            "type": "integer",
+            "minimum": -9007199254740991,
+            "maximum": 9007199254740991
+          },
+          "expiraEn": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "cotizacionId",
+          "tasa",
+          "montoDestino",
+          "expiraEn"
+        ],
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": true
+      }
+    },
+    {
+      "name": "crear_transferencia",
+      "title": "Crear transferencia",
+      "description": "Mueve dinero entre dos billeteras usando una cotización vigente (menos de 60 segundos). Llama primero a cotizar. Si hay un fallo de red, reintenta con la misma idempotencyKey: nunca se cobra dos veces.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "origenId": {
+            "type": "string",
+            "description": "Id de la billetera de origen, por ejemplo W-001"
+          },
+          "destinoId": {
+            "type": "string",
+            "description": "Id de la billetera de destino, por ejemplo W-002"
+          },
+          "cotizacionId": {
+            "type": "string",
+            "description": "Id devuelto por cotizar"
+          },
+          "idempotencyKey": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
+            "description": "UUID único por intento; repetirlo no duplica la transferencia"
+          }
+        },
+        "required": [
+          "origenId",
+          "destinoId",
+          "cotizacionId",
+          "idempotencyKey"
+        ],
+        "$schema": "https://json-schema.org/draft/2020-12/schema"
+      },
+      "annotations": {
+        "readOnlyHint": false,
+        "idempotentHint": true
+      }
+    }
+  ]
+}
+--- codigo de salida: 0 ---
+
+--- stderr (avisos de npm y logs del servidor) ---
+[billeteras-mcp] servidor listo en stdio

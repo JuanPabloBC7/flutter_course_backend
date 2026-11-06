@@ -1,0 +1,47 @@
+$ npm run escenarios
+Servidor bajo prueba: build/index.js
+ESCENARIO 1: "Transfiere 100 USD de W-001 a W-002"
+  saldos antes: W-001=50000 (USD), W-002=10000 (EUR)
+  cotizar -> {"cotizacionId":"067852dd-4c4c-4acd-9fbb-c0c65fb23e0e","tasa":0.92,"montoDestino":9200,"expiraEn":"2026-11-06T21:54:11.455Z"}
+  crear_transferencia -> {"transferenciaId":"d90e15d0-cf6e-404d-8c37-2f9133bb5118","origenId":"W-001","destinoId":"W-002","monedaOrigen":"USD","monedaDestino":"EUR","montoOrigen":10000,"montoDestino":9200,"tasa":0.92,"asientos":[{"cuenta":"W-001","moneda":"USD","direccion":"DEBIT","monto":10000},{"cuenta":"FX_CLEARING_USD","moneda":"USD","direccion":"CREDIT","monto":10000},{"cuenta":"FX_CLEARING_EUR","moneda":"EUR","direccion":"DEBIT","monto":9200},{"cuenta":"W-002","moneda":"EUR","direccion":"CREDIT","monto":9200}],"saldoOrigen":40000,"saldoDestino":19200}
+  saldos después: W-001=40000, W-002=19200
+  [ok] W-001 bajó 10000 USD-centavos, W-002 subió 9200 EUR-centavos (tasa 0.92, redondeo hacia abajo); asientos suman 0 en USD y en EUR
+  [ok] stdout: 7 lineas, todas JSON-RPC 2.0; servidor terminó con código 0
+
+ESCENARIO 2: "¿Cuánto tiene W-003 y qué reglas aplican?"
+  billetera://W-003 (application/json) -> {"id":"W-003","moneda":"COP","saldo":200000000}
+  specs://SPEC-TRANSFER (text/markdown) -> 7306 caracteres, 10 reglas (R1..R10)
+    - **R1.** Toda solicitud de transferencia DEBE indicar billetera origen,
+    - **R2.** El monto de la transferencia DEBE ser mayor que cero. SI el monto es
+    - **R3.** Cuando se crea una transferencia, el sistema DEBE cotizar y **congelar
+    - **R4.** La tasa congelada DEBE ser válida por un máximo de **60 segundos**.
+    - **R5.** Antes de debitar, el sistema DEBE **bloquear** el saldo en la billetera
+    - **R6.** SI el saldo disponible de la billetera de origen es insuficiente para
+    - **R7.** Ninguna operación DEBE dejar una billetera con **saldo negativo**
+    - **R8.** Al completar la transferencia, el sistema DEBE debitar el monto de la
+    - **R9.** Cada transferencia completada DEBE generar **asientos contables que
+    - **R10.** La misma solicitud reintentada NO DEBE producir una segunda
+  [ok] saldo de W-003 = 200000000 centavos COP y reglas leídas desde la spec
+  [ok] stdout: 3 lineas, todas JSON-RPC 2.0; servidor terminó con código 0
+
+ESCENARIO 3: "Transfiere 10.000 USD de W-001 a W-002" (saldo insuficiente)
+  crear_transferencia -> isError=true: INSUFFICIENT_FUNDS: Saldo disponible: 50000; monto requerido: 1000000. Reduce el monto o usa otra billetera de origen.
+  [ok] rechazada con mensaje legible; saldos intactos (W-001=50000, W-002=10000)
+  [ok] stdout: 5 lineas, todas JSON-RPC 2.0; servidor terminó con código 0
+
+ESCENARIO 4: "Usa una cotización de hace 2 minutos"
+  Simulación: el servidor arranca con BILLETERAS_QUOTE_TTL_MS=200 (solo pruebas; por defecto 60000) y se esperan 400 ms.
+  crear_transferencia (cotización vencida) -> isError=true: QUOTE_EXPIRED: La cotización venció (más de 60 segundos). Llama a cotizar de nuevo y usa el nuevo cotizacionId.
+  tras cotizar de nuevo -> isError=false
+  [ok] QUOTE_EXPIRED con sugerencia de cotizar otra vez; sin movimiento de dinero; con cotización nueva funciona
+  [ok] stdout: 7 lineas, todas JSON-RPC 2.0; servidor terminó con código 0
+
+ESCENARIO 5: "Repite la última transferencia con la misma key"
+  primera  -> {"transferenciaId":"47fc32c8-cba3-496a-9bda-1817b9da0a2f","origenId":"W-001","destinoId":"W-002","monedaOrigen":"USD","monedaDestino":"EUR","montoOrigen":10000,"montoDestino":9200,"tasa":0.92,"asientos":[{"cuenta":"W-001","moneda":"USD","direccion":"DEBIT","monto":10000},{"cuenta":"FX_CLEARING_USD","moneda":"USD","direccion":"CREDIT","monto":10000},{"cuenta":"FX_CLEARING_EUR","moneda":"EUR","direccion":"DEBIT","monto":9200},{"cuenta":"W-002","moneda":"EUR","direccion":"CREDIT","monto":9200}],"saldoOrigen":40000,"saldoDestino":19200}
+  segunda  -> {"transferenciaId":"47fc32c8-cba3-496a-9bda-1817b9da0a2f","origenId":"W-001","destinoId":"W-002","monedaOrigen":"USD","monedaDestino":"EUR","montoOrigen":10000,"montoDestino":9200,"tasa":0.92,"asientos":[{"cuenta":"W-001","moneda":"USD","direccion":"DEBIT","monto":10000},{"cuenta":"FX_CLEARING_USD","moneda":"USD","direccion":"CREDIT","monto":10000},{"cuenta":"FX_CLEARING_EUR","moneda":"EUR","direccion":"DEBIT","monto":9200},{"cuenta":"W-002","moneda":"EUR","direccion":"CREDIT","monto":9200}],"saldoOrigen":40000,"saldoDestino":19200}
+  saldos: W-001=40000, W-002=19200
+  [ok] resultado idéntico y un solo débito (W-001=40000, W-002=19200)
+  [ok] stdout: 6 lineas, todas JSON-RPC 2.0; servidor terminó con código 0
+
+RESULTADO: 5 de 5 escenarios pasaron
+--- codigo de salida: 0 ---

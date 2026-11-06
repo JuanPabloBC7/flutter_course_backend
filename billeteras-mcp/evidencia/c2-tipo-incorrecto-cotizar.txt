@@ -1,0 +1,17 @@
+$ npx -y @modelcontextprotocol/inspector@2.14.0 --cli node build/index.js --method tools/call --tool-name cotizar --tool-arg origen=USD destino=EUR monto=abc
+
+--- stdout ---
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "Input validation error: Invalid arguments for tool cotizar: monto: Invalid input: expected number, received null"
+    }
+  ],
+  "isError": true
+}
+--- codigo de salida: 5 ---
+
+--- stderr (avisos de npm y logs del servidor) ---
+[billeteras-mcp] servidor listo en stdio
+{"error":{"code":"tool_is_error","message":"Tool 'cotizar' returned isError:true."}}

@@ -1,0 +1,15 @@
+$ npx -y @modelcontextprotocol/inspector@2.14.0 --cli node build/index.js --method tools/call --tool-name consultar_saldo --tool-arg billeteraId=W-001
+
+--- stdout ---
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "{\"billeteraId\":\"W-001\",\"moneda\":\"USD\",\"saldo\":50000}"
+    }
+  ]
+}
+--- codigo de salida: 0 ---
+
+--- stderr (avisos de npm y logs del servidor) ---
+[billeteras-mcp] servidor listo en stdio

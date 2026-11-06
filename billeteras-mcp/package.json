@@ -1,0 +1,30 @@
+{
+  "name": "billeteras-mcp",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Servidor MCP (stdio) para consultar saldos y transferir entre billeteras USD, EUR y COP",
+  "type": "module",
+  "main": "build/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node build/index.js",
+    "dev": "tsx src/index.ts",
+    "test": "node --import tsx --test tests/*.test.ts",
+    "typecheck": "tsc --noEmit && tsc --noEmit -p tsconfig.test.json",
+    "escenarios": "node --import tsx scripts/escenarios.ts",
+    "prueba-stdout": "node --import tsx scripts/prueba-stdout.ts",
+    "evidencia": "bash scripts/generar-evidencia.sh"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/server": "2.4.0",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "20.19.43",
+    "tsx": "4.23.15",
+    "typescript": "7.0.2"
+  }
+}

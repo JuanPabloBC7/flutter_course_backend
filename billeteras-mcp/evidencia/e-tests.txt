@@ -1,0 +1,328 @@
+$ npm test
+
+> billeteras-mcp@1.0.0 test
+> node --import tsx --test tests/*.test.ts
+
+TAP version 13
+# Subtest: escenarios de aceptacion (servidor real por stdio)
+    # Subtest: 1. transferir 100 USD de W-001 a W-002
+    ok 1 - 1. transferir 100 USD de W-001 a W-002
+      ---
+      duration_ms: 292.435167
+      ...
+    # Subtest: 2. saldo de W-003 y reglas desde los recursos
+    ok 2 - 2. saldo de W-003 y reglas desde los recursos
+      ---
+      duration_ms: 232.131
+      ...
+    # Subtest: 3. saldo insuficiente es legible y no mueve dinero
+    ok 3 - 3. saldo insuficiente es legible y no mueve dinero
+      ---
+      duration_ms: 253.848417
+      ...
+    # Subtest: 4. cotizacion vencida: QUOTE_EXPIRED y sugerencia
+    ok 4 - 4. cotizacion vencida: QUOTE_EXPIRED y sugerencia
+      ---
+      duration_ms: 832.53575
+      ...
+    # Subtest: 5. misma idempotencyKey: mismo resultado y un solo debito
+    ok 5 - 5. misma idempotencyKey: mismo resultado y un solo debito
+      ---
+      duration_ms: 249.438333
+      ...
+    1..5
+ok 1 - escenarios de aceptacion (servidor real por stdio)
+  ---
+  duration_ms: 1861.17775
+  type: 'suite'
+  ...
+# Fallo al acreditar; débito revertido: Error: fallo simulado al acreditar
+#     at creditWallet (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:41:15)
+#     at Object.transfer (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/src/reglas.ts:331:9)
+#     at TestContext.<anonymous> (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:206:16)
+#     at Test.runInAsyncScope (node:async_hooks:206:9)
+#     at Test.run (node:internal/test_runner/test:796:25)
+#     at Test.start (node:internal/test_runner/test:702:17)
+#     at node:internal/test_runner/test:1133:71
+#     at node:internal/per_context/primordials:482:82
+#     at new Promise (<anonymous>)
+#     at new SafePromise (node:internal/per_context/primordials:450:29)
+# Fallo al acreditar; débito revertido: Error: fallo simulado al acreditar
+#     at creditWallet (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:41:15)
+#     at Object.transfer (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/src/reglas.ts:331:9)
+#     at TestContext.<anonymous> (/Users/Juan_Balan/Desktop/env/personal/project/flutter-course-backend/billeteras-mcp/tests/reglas.test.ts:217:26)
+#     at Test.runInAsyncScope (node:async_hooks:206:9)
+#     at Test.run (node:internal/test_runner/test:796:25)
+#     at Suite.processPendingSubtests (node:internal/test_runner/test:526:18)
+#     at Test.postRun (node:internal/test_runner/test:889:19)
+#     at Test.run (node:internal/test_runner/test:835:12)
+#     at async Promise.all (index 0)
+#     at async Suite.run (node:internal/test_runner/test:1135:7)
+# Subtest: aritmetica de dinero
+    # Subtest: convierte con enteros y redondea hacia abajo
+    ok 1 - convierte con enteros y redondea hacia abajo
+      ---
+      duration_ms: 0.356125
+      ...
+    # Subtest: devuelve siempre enteros
+    ok 2 - devuelve siempre enteros
+      ---
+      duration_ms: 0.064917
+      ...
+    1..2
+ok 2 - aritmetica de dinero
+  ---
+  duration_ms: 0.970292
+  type: 'suite'
+  ...
+# Subtest: cotizar
+    # Subtest: devuelve id, tasa, monto destino entero y expiracion a 60 s
+    ok 1 - devuelve id, tasa, monto destino entero y expiracion a 60 s
+      ---
+      duration_ms: 1.554416
+      ...
+    # Subtest: no mueve dinero
+    ok 2 - no mueve dinero
+      ---
+      duration_ms: 0.642334
+      ...
+    # Subtest: rechaza monto invalido 0 con INVALID_AMOUNT
+    ok 3 - rechaza monto invalido 0 con INVALID_AMOUNT
+      ---
+      duration_ms: 0.113667
+      ...
+    # Subtest: rechaza monto invalido -5 con INVALID_AMOUNT
+    ok 4 - rechaza monto invalido -5 con INVALID_AMOUNT
+      ---
+      duration_ms: 0.053459
+      ...
+    # Subtest: rechaza monto invalido 1.5 con INVALID_AMOUNT
+    ok 5 - rechaza monto invalido 1.5 con INVALID_AMOUNT
+      ---
+      duration_ms: 0.056792
+      ...
+    # Subtest: rechaza monto invalido NaN con INVALID_AMOUNT
+    ok 6 - rechaza monto invalido NaN con INVALID_AMOUNT
+      ---
+      duration_ms: 0.214125
+      ...
+    # Subtest: rechaza monto invalido Infinity con INVALID_AMOUNT
+    ok 7 - rechaza monto invalido Infinity con INVALID_AMOUNT
+      ---
+      duration_ms: 0.152875
+      ...
+    # Subtest: rechaza monto invalido 1000000000000000 con INVALID_AMOUNT
+    ok 8 - rechaza monto invalido 1000000000000000 con INVALID_AMOUNT
+      ---
+      duration_ms: 0.077459
+      ...
+    # Subtest: rechaza un monto cuyo equivalente destino seria 0
+    ok 9 - rechaza un monto cuyo equivalente destino seria 0
+      ---
+      duration_ms: 0.130959
+      ...
+    1..9
+ok 3 - cotizar
+  ---
+  duration_ms: 3.305666
+  type: 'suite'
+  ...
+# Subtest: R1 saldo nunca negativo
+    # Subtest: rechaza con INSUFFICIENT_FUNDS y el mensaje exacto sin cambiar saldos
+    ok 1 - rechaza con INSUFFICIENT_FUNDS y el mensaje exacto sin cambiar saldos
+      ---
+      duration_ms: 0.316583
+      ...
+    # Subtest: permite transferir el saldo exacto y deja el origen en 0
+    ok 2 - permite transferir el saldo exacto y deja el origen en 0
+      ---
+      duration_ms: 0.193667
+      ...
+    # Subtest: ninguna billetera queda con saldo negativo
+    ok 3 - ninguna billetera queda con saldo negativo
+      ---
+      duration_ms: 0.082917
+      ...
+    1..3
+ok 4 - R1 saldo nunca negativo
+  ---
+  duration_ms: 0.728041
+  type: 'suite'
+  ...
+# Subtest: R2 cotizacion vigente
+    # Subtest: acepta una cotizacion de menos de 60 s
+    ok 1 - acepta una cotizacion de menos de 60 s
+      ---
+      duration_ms: 0.116166
+      ...
+    # Subtest: rechaza con QUOTE_EXPIRED a los 60 s y sugiere cotizar de nuevo
+    ok 2 - rechaza con QUOTE_EXPIRED a los 60 s y sugiere cotizar de nuevo
+      ---
+      duration_ms: 0.089583
+      ...
+    # Subtest: rechaza con QUOTE_EXPIRED una cotizacion que no existe
+    ok 3 - rechaza con QUOTE_EXPIRED una cotizacion que no existe
+      ---
+      duration_ms: 0.050333
+      ...
+    # Subtest: una cotizacion es de un solo uso (otra llave no la reutiliza)
+    ok 4 - una cotizacion es de un solo uso (otra llave no la reutiliza)
+      ---
+      duration_ms: 0.189333
+      ...
+    1..4
+ok 5 - R2 cotizacion vigente
+  ---
+  duration_ms: 0.575584
+  type: 'suite'
+  ...
+# Subtest: R3 atomicidad
+    # Subtest: si falla el credito se revierte el debito y no hay asientos
+    ok 1 - si falla el credito se revierte el debito y no hay asientos
+      ---
+      duration_ms: 4.184583
+      ...
+    # Subtest: tras un fallo se puede reintentar con la misma llave y la misma cotizacion
+    ok 2 - tras un fallo se puede reintentar con la misma llave y la misma cotizacion
+      ---
+      duration_ms: 0.423709
+      ...
+    1..2
+ok 6 - R3 atomicidad
+  ---
+  duration_ms: 4.678125
+  type: 'suite'
+  ...
+# Subtest: R4 asientos que suman cero por moneda
+    # Subtest: USD a EUR: debito W-001 / credito FX_CLEARING_USD y debito FX_CLEARING_EUR / credito W-002
+    ok 1 - USD a EUR: debito W-001 / credito FX_CLEARING_USD y debito FX_CLEARING_EUR / credito W-002
+      ---
+      duration_ms: 0.171708
+      ...
+    # Subtest: cada transferencia suma cero en cada moneda (USD a COP)
+    ok 2 - cada transferencia suma cero en cada moneda (USD a COP)
+      ---
+      duration_ms: 0.093292
+      ...
+    # Subtest: misma moneda entre billeteras distintas: tasa 1 y suma cero
+    ok 3 - misma moneda entre billeteras distintas: tasa 1 y suma cero
+      ---
+      duration_ms: 0.296709
+      ...
+    1..3
+ok 7 - R4 asientos que suman cero por moneda
+  ---
+  duration_ms: 0.628167
+  type: 'suite'
+  ...
+# Subtest: R5 idempotencia
+    # Subtest: la misma llave dos veces: un solo debito y resultado identico
+    ok 1 - la misma llave dos veces: un solo debito y resultado identico
+      ---
+      duration_ms: 0.224417
+      ...
+    # Subtest: el reintento funciona aunque la cotizacion ya haya vencido
+    ok 2 - el reintento funciona aunque la cotizacion ya haya vencido
+      ---
+      duration_ms: 0.117042
+      ...
+    # Subtest: la misma llave con datos distintos se rechaza con IDEMPOTENCY_KEY_REUSED
+    ok 3 - la misma llave con datos distintos se rechaza con IDEMPOTENCY_KEY_REUSED
+      ---
+      duration_ms: 0.166667
+      ...
+    1..3
+ok 8 - R5 idempotencia
+  ---
+  duration_ms: 0.573875
+  type: 'suite'
+  ...
+# Subtest: validaciones de billeteras
+    # Subtest: SAME_WALLET cuando origen y destino son el mismo id
+    ok 1 - SAME_WALLET cuando origen y destino son el mismo id
+      ---
+      duration_ms: 0.088208
+      ...
+    # Subtest: WALLET_NOT_FOUND lista los ids validos (transferencia)
+    ok 2 - WALLET_NOT_FOUND lista los ids validos (transferencia)
+      ---
+      duration_ms: 0.077125
+      ...
+    # Subtest: WALLET_NOT_FOUND lista los ids validos (consulta de saldo)
+    ok 3 - WALLET_NOT_FOUND lista los ids validos (consulta de saldo)
+      ---
+      duration_ms: 0.060875
+      ...
+    # Subtest: CURRENCY_MISMATCH si la moneda de la billetera no coincide con la cotizacion
+    ok 4 - CURRENCY_MISMATCH si la moneda de la billetera no coincide con la cotizacion
+      ---
+      duration_ms: 0.07675
+      ...
+    # Subtest: getWallet devuelve el saldo en unidades minimas
+    ok 5 - getWallet devuelve el saldo en unidades minimas
+      ---
+      duration_ms: 0.049375
+      ...
+    1..5
+ok 9 - validaciones de billeteras
+  ---
+  duration_ms: 0.414417
+  type: 'suite'
+  ...
+# Subtest: contrato MCP del servidor
+    # Subtest: expone exactamente las 3 herramientas con sus anotaciones
+    ok 1 - expone exactamente las 3 herramientas con sus anotaciones
+      ---
+      duration_ms: 4.074917
+      ...
+    # Subtest: expone el recurso, la plantilla y el prompt con nombres exactos
+    ok 2 - expone el recurso, la plantilla y el prompt con nombres exactos
+      ---
+      duration_ms: 1.722792
+      ...
+    # Subtest: el prompt manda leer specs://SPEC-TRANSFER primero
+    ok 3 - el prompt manda leer specs://SPEC-TRANSFER primero
+      ---
+      duration_ms: 1.17075
+      ...
+    # Subtest: consultar_saldo con id inexistente devuelve isError con los ids validos
+    ok 4 - consultar_saldo con id inexistente devuelve isError con los ids validos
+      ---
+      duration_ms: 2.06375
+      ...
+    # Subtest: un argumento con tipo equivocado se rechaza antes de ejecutar las reglas
+    ok 5 - un argumento con tipo equivocado se rechaza antes de ejecutar las reglas
+      ---
+      duration_ms: 0.956417
+      ...
+    # Subtest: idempotencyKey que no es uuid se rechaza por esquema
+    ok 6 - idempotencyKey que no es uuid se rechaza por esquema
+      ---
+      duration_ms: 1.039625
+      ...
+    # Subtest: monto cero devuelve INVALID_AMOUNT como resultado, no como error de protocolo
+    ok 7 - monto cero devuelve INVALID_AMOUNT como resultado, no como error de protocolo
+      ---
+      duration_ms: 1.019375
+      ...
+    # Subtest: leer una billetera inexistente es un error estandar de recurso no encontrado
+    ok 8 - leer una billetera inexistente es un error estandar de recurso no encontrado
+      ---
+      duration_ms: 1.143
+      ...
+    1..8
+ok 10 - contrato MCP del servidor
+  ---
+  duration_ms: 313.619167
+  type: 'suite'
+  ...
+1..10
+# tests 44
+# suites 10
+# pass 44
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2035.949625
+--- codigo de salida: 0 ---

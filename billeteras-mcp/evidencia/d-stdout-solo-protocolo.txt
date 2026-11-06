@@ -1,0 +1,21 @@
+$ node build/index.js < /dev/null   (stdout a un archivo, stderr a otro)
+codigo de salida: 0
+bytes en stdout: 0
+contenido de stderr:
+  | [billeteras-mcp] servidor listo en stdio
+
+$ npm run prueba-stdout
+Líneas escritas por el servidor en STDOUT: 6
+  [1] respuesta: {"result":{"protocolVersion":"2025-06-18","capabilities":{"tools":{"listChanged":true},"resources":{"listChang…
+  [2] respuesta: {"result":{"content":[{"type":"text","text":"{\"cotizacionId\":\"8f924687-ee19-4e0e-a0a1-2d9ba401c1bd\",\"tasa…
+  [3] respuesta: {"result":{"content":[{"type":"text","text":"{\"transferenciaId\":\"95c95ee5-d1da-4f8c-938d-517335f99116\",\"o…
+  [4] respuesta: {"result":{"content":[{"type":"text","text":"WALLET_NOT_FOUND: La billetera \"W-999\" no existe. Ids válidos: …
+  [5] respuesta: {"result":{"content":[{"type":"text","text":"Input validation error: Invalid arguments for tool consultar_sald…
+  [6] respuesta con error: {"jsonrpc":"2.0","id":6,"error":{"code":-32602,"message":"WALLET_NOT_FOUND: La billetera \"W-999\" no existe. …
+Líneas de STDOUT que NO son JSON-RPC 2.0: 0
+
+Contenido de STDERR (logs, nunca protocolo):
+  | [billeteras-mcp] servidor listo en stdio
+Código de salida del servidor tras cerrar stdin: 0
+
+RESULTADO: stdout contiene únicamente mensajes JSON-RPC del protocolo.

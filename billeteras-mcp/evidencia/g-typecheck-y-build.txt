@@ -1,0 +1,13 @@
+$ npm run typecheck
+
+> billeteras-mcp@1.0.0 typecheck
+> tsc --noEmit && tsc --noEmit -p tsconfig.test.json
+
+--- codigo de salida: 0 ---
+
+$ npm run build
+
+> billeteras-mcp@1.0.0 build
+> tsc
+
+--- codigo de salida: 0 ---
